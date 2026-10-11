@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Снежа Design — дизайн визиток, листовок и полиграфии." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Allura&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/index.css">
+    <title>Снежа Design</title>
+  </head>
+  <body>
+    <!-- Экран загрузки: котик бежит за клубком -->
+    <div id="preloader" class="preloader" aria-live="polite" aria-label="Загрузка сайта">
+      <div class="preloader-stage">
+        <div class="runner">
+          <svg class="cat" viewBox="0 0 120 100" width="120" height="100" fill="none" stroke-linecap="round" aria-hidden="true">
+            <path class="cat-tail" d="M24 58 Q4 48 12 26" stroke="#7b1e2e" stroke-width="6" />
+            <g class="cat-body">
+              <line class="cat-leg" x1="40" y1="72" x2="40" y2="96" stroke="#7b1e2e" stroke-width="6" style="transform-origin: 40px 72px" />
+              <line class="cat-leg" x1="90" y1="72" x2="90" y2="96" stroke="#7b1e2e" stroke-width="6" style="transform-origin: 90px 72px" />
+              <line class="cat-leg" x1="52" y1="72" x2="52" y2="96" stroke="#7b1e2e" stroke-width="6" style="transform-origin: 52px 72px; animation-delay: -0.3s" />
+              <line class="cat-leg" x1="78" y1="72" x2="78" y2="96" stroke="#7b1e2e" stroke-width="6" style="transform-origin: 78px 72px; animation-delay: -0.3s" />
+              <ellipse cx="56" cy="60" rx="34" ry="19" fill="#7b1e2e" />
+              <circle cx="92" cy="38" r="15" fill="#7b1e2e" />
+              <path d="M80 30 L81 12 L92 24 Z" fill="#7b1e2e" />
+              <path d="M92 24 L103 12 L104 30 Z" fill="#7b1e2e" />
+              <circle cx="98" cy="36" r="2.2" fill="#fff" />
+              <circle cx="104" cy="44" r="1.6" fill="#f4b6c2" />
+              <path d="M101 46 L115 43 M101 48 L115 50" stroke="#7b1e2e" stroke-width="1" />
+            </g>
+          </svg>
+          <div class="yarn">
+            <svg class="yarn-ball" viewBox="0 0 40 40" width="40" height="40" fill="none" aria-hidden="true">
+              <circle cx="20" cy="20" r="18" fill="#d9707f" />
+              <path d="M4 14 Q20 22 36 12" stroke="#f7d3da" stroke-width="1.6" />
+              <path d="M3 24 Q20 32 37 22" stroke="#f7d3da" stroke-width="1.6" />
+              <path d="M10 4 Q14 20 10 36" stroke="#f7d3da" stroke-width="1.6" />
+              <path d="M24 3 Q20 20 26 37" stroke="#f7d3da" stroke-width="1.6" />
+              <path d="M36 30 Q46 36 42 48" stroke="#d9707f" stroke-width="1.5" />
+            </svg>
+          </div>
+        </div>
+        <div class="floor"></div>
+      </div>
+
+      <p class="preloader-brand">Снежа Design</p>
+      <div class="progress">
+        <div class="progress-bar" id="preloader-bar"></div>
+      </div>
+      <p class="preloader-label" id="preloader-label">Загрузка… 0%</p>
+    </div>
+
+    <header class="navbar">
+      <nav class="navbar-inner">
+        <a href="#top" class="logo">Снежа Design</a>
+        <ul class="nav-links">
+          <li><a href="#portfolio">Работы</a></li>
+          <li><a href="#contact">Контакты</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Шапка с большой фотографией -->
+      <section id="top" class="hero">
+        <img
+          class="hero-img"
+          src="https://images.pexels.com/photos/30749329/pexels-photo-30749329.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1400&w=1200"
+          alt="Девушка с бордовой сумкой"
+        />
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <p class="kicker kicker--light">Графический дизайнер</p>
+          <h1>Визитки, листовки и всё, что печатается</h1>
+          <p class="hero-text">
+            Аккуратный дизайн для малого бизнеса и мастеров. Быстро, с правками и готовыми файлами
+            для печати.
+          </p>
+          <a href="#contact" class="btn btn--light">Заказать дизайн</a>
+        </div>
+      </section>
+
+      <!-- Работы: плитки разного размера -->
+      <section id="portfolio" class="section section--white">
+        <div class="container">
+          <div class="section-title">
+            <p class="kicker">Примеры</p>
+            <h2>Работы</h2>
+            <span class="divider"></span>
+          </div>
+          <div class="works-grid" id="works-grid"></div>
+        </div>
+      </section>
+
+      <!-- Контакты -->
+      <section id="contact" class="section section--light">
+        <div class="container container--narrow contact">
+          <p class="kicker">Контакты</p>
+          <h2>Давайте обсудим ваш проект</h2>
+          <p class="contact-text">
+            Напишите, что нужно напечатать, какой тираж и сроки. Отвечу в течение дня и пришлю
+            примерную стоимость.
+          </p>
+          <div class="contact-actions">
+            <a class="btn btn--wine" href="mailto:hello@Снежаdesign.ru?subject=Заказ%20дизайна">Написать на почту</a>
+            <a class="contact-link" href="https://t.me/Снежаdesign">Telegram: @Снежаdesign</a>
+            <p class="contact-phone">+7 (900) 000-00-00</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <span class="footer-logo">Снежа Design</span>
+        <span class="footer-copy">© 2026 Снежа Design. Все права защищены.</span>
+      </div>
+    </footer>
+
+    <!-- Модальное окно с работой и слайдером -->
+    <div id="modal" class="modal" hidden>
+      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button type="button" id="modal-close" class="modal-close" aria-label="Закрыть">✕</button>
+
+        <div class="slider" id="slider">
+          <div class="slider-track" id="slider-track"></div>
+          <button type="button" id="slider-prev" class="slider-btn slider-btn--prev" aria-label="Предыдущее фото">‹</button>
+          <button type="button" id="slider-next" class="slider-btn slider-btn--next" aria-label="Следующее фото">›</button>
+          <span class="slider-counter" id="slider-counter"></span>
+          <div class="slider-dots" id="slider-dots"></div>
+        </div>
+
+        <div class="modal-body">
+          <p class="kicker" id="modal-category"></p>
+          <h3 class="modal-title" id="modal-title"></h3>
+          <dl class="modal-info">
+            <div>
+              <dt>Задача</dt>
+              <dd id="modal-task"></dd>
+            </div>
+            <div>
+              <dt>Решение</dt>
+              <dd id="modal-solution"></dd>
+            </div>
+            <div>
+              <dt>Результат</dt>
+              <dd id="modal-result"></dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
