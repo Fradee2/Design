@@ -1,30 +1,29 @@
 import { works } from "./works.js";
 
-/* ============================================================
-   1. Карточки работ
-   ============================================================ */
 
 const grid = document.getElementById("works-grid");
 
-// Размеры плиток на десктопе: большая высокая и широкая
-const sizeClass = {
-  coffee: "work--tall",
-  beauty: "work--wide",
-};
-
 grid.innerHTML = works
-  .map(
-    (w) => `
-    <button type="button" class="work ${sizeClass[w.id] ?? ""}" data-id="${w.id}" aria-label="Подробнее: ${w.title}">
-      <img src="${w.images[0]}" alt="${w.title}" loading="lazy" />
+  .map((w) => {
+    const hasImage = w.images.length > 0;
+    const sizeClass = w.size ? `work--${w.size}` : "";
+    const cover = hasImage ? `<img src="${w.images[0]}" alt="${w.title}" loading="lazy" />` : "";
+    // Без фото плитка получает фирменный градиент
+    const style = hasImage
+      ? ""
+      : ` style="background: linear-gradient(135deg, #600303, #3f2724)"`;
+
+    return `
+    <button type="button" class="work ${sizeClass}" data-id="${w.id}"${style} aria-label="Подробнее: ${w.title}">
+      ${cover}
       <span class="work-overlay"></span>
       <span class="work-text">
         <span class="work-category">${w.category}</span>
         <span class="work-title">${w.title}</span>
         <span class="work-more">Подробнее →</span>
       </span>
-    </button>`
-  )
+    </button>`;
+  })
   .join("");
 
 /* ============================================================
@@ -62,32 +61,35 @@ function openModal(work) {
   currentWork = work;
   currentIndex = 0;
 
-  // Слайды и точки
-  track.style.transition = "none";
-  track.innerHTML = work.images
-    .map((src, i) => `<img src="${src}" alt="${work.title} — фото ${i + 1}" draggable="false" />`)
-    .join("");
-  dots.innerHTML = work.images
-    .map((_, i) => `<button type="button" data-dot="${i}" aria-label="Фото ${i + 1}"></button>`)
-    .join("");
+  const hasImages = work.images.length > 0;
+  slider.hidden = !hasImages;
 
-  // Стрелки, точки и счётчик показываем только если фото больше одного
-  const multi = work.images.length > 1;
-  prevBtn.hidden = !multi;
-  nextBtn.hidden = !multi;
-  dots.hidden = !multi;
-  counter.hidden = !multi;
+  if (hasImages) {
+    track.style.transition = "none";
+    track.innerHTML = work.images
+      .map((src, i) => `<img src="${src}" alt="${work.title} — фото ${i + 1}" draggable="false" />`)
+      .join("");
+    dots.innerHTML = work.images
+      .map((_, i) => `<button type="button" data-dot="${i}" aria-label="Фото ${i + 1}"></button>`)
+      .join("");
 
-  // Текст
+    // Стрелки, точки и счётчик нужны только при нескольких фото
+    const multi = work.images.length > 1;
+    prevBtn.hidden = !multi;
+    nextBtn.hidden = !multi;
+    dots.hidden = !multi;
+    counter.hidden = !multi;
+
+    renderSlide();
+    track.offsetHeight; // сбрасываем переход, чтобы не ехать от прошлой работы
+    track.style.transition = "";
+  }
+
   document.getElementById("modal-category").textContent = work.category;
   document.getElementById("modal-title").textContent = work.title;
   document.getElementById("modal-task").textContent = work.task;
   document.getElementById("modal-solution").textContent = work.solution;
   document.getElementById("modal-result").textContent = work.result;
-
-  renderSlide();
-  track.offsetHeight; // сбрасываем переход, чтобы не ехать от прошлой работы
-  track.style.transition = "";
 
   modal.hidden = false;
   document.body.classList.add("no-scroll");
@@ -160,7 +162,7 @@ slider.addEventListener(
    сам через MAX_WAIT.
    ============================================================ */
 
-const MIN_DURATION = 1500;
+const MIN_DURATION = 3000;
 const FADE_DURATION = 600;
 const MAX_WAIT = 15000;
 

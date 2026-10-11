@@ -1,13 +1,16 @@
 /* ===== Переменные ===== */
 :root {
-  --wine: #7b1e2e;
-  --wine-dark: #4a0e1b;
-  --wine-light: #f7efef;
-  --rose: #fecdd3;
-  --rose-soft: #ffe4e6;
-  --ink: #27272a;
-  --text: #3f3f46;
-  --muted: #52525b;
+  /* Палитра: бордовый, коричневый, чёрный, тёмно-коричневый */
+  --wine: #600303;
+  --wine-dark: #3f2724;
+  --brown: #5c3a1e;
+  --black: #000000;
+  --wine-light: #f5efe9;
+  --rose: #e6cdb4;
+  --rose-soft: #f5efe9;
+  --ink: #000000;
+  --text: #3f2724;
+  --muted: #5c3a1e;
   --serif: "Playfair Display", Georgia, serif;
   --script: "Allura", cursive;
   --sans: "Inter", system-ui, sans-serif;
@@ -167,7 +170,7 @@ section[id] {
   z-index: 50;
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(123, 30, 46, 0.1);
+  border-bottom: 1px solid rgba(96, 3, 3, 0.12);
 }
 
 .navbar-inner {
@@ -212,66 +215,22 @@ section[id] {
 
 /* ===== Шапка ===== */
 .hero {
-  position: relative;
-  height: 88vh;
-  min-height: 560px;
-  overflow: hidden;
-  background: var(--wine-dark);
+  padding-top: 64px;
+  background: #fff;
+  display: flex;
+  justify-content: right;
 }
 
 .hero-img {
-  position: absolute;
-  inset: 0;
+  max-width: 1200px;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
+  height: auto;
 }
 
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, var(--wine-dark), rgba(74, 14, 27, 0.4), transparent);
-}
-
-.hero-content {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  max-width: 1024px;
-  margin: 0 auto;
-  padding: 0 24px 64px;
-  color: #fff;
-}
-
-.hero-content .kicker {
-  margin-bottom: 0;
-}
-
-.hero h1 {
-  margin-top: 12px;
-  font-size: 30px;
-  line-height: 1.2;
-  color: #fff;
-}
-
-@media (min-width: 768px) {
-  .hero h1 {
-    font-size: 36px;
-  }
-}
-
-.hero-text {
-  max-width: 448px;
-  margin-top: 12px;
-  font-size: 14px;
-  line-height: 1.6;
-  color: rgba(255, 241, 242, 0.85);
-}
-
-.hero-content .btn {
-  margin-top: 24px;
+.hero-cta {
+  padding: 32px 24px;
+  text-align: center;
+  background: #fff;
 }
 
 /* ===== Заголовок секции ===== */
@@ -331,7 +290,7 @@ section[id] {
 .work-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(74, 14, 27, 0.9), rgba(74, 14, 27, 0.3), transparent);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.25), transparent);
 }
 
 .work-text {
@@ -388,13 +347,9 @@ section[id] {
     height: auto;
   }
 
-  .work--tall {
-    grid-row: span 2;
-  }
 
-  .work--wide {
-    grid-column: span 2;
-  }
+
+
 }
 
 @media (min-width: 1024px) {
@@ -654,7 +609,7 @@ section[id] {
 }
 
 .footer-copy {
-  color: rgba(254, 205, 211, 0.7);
+  color: rgba(230, 205, 180, 0.8);
 }
 
 /* ===== Экран загрузки ===== */
@@ -779,6 +734,119 @@ section[id] {
   }
   100% {
     transform: translateX(190px);
+    opacity: 0;
+  }
+}
+
+@keyframes cat-leg {
+  from {
+    transform: rotate(-22deg);
+  }
+  to {
+    transform: rotate(22deg);
+  }
+}
+
+@keyframes cat-tail {
+  from {
+    transform: rotate(-12deg);
+  }
+  to {
+    transform: rotate(14deg);
+  }
+}
+
+@keyframes cat-bob {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes yarn-roll {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes yarn-bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-8px);
+  }
+}
+.preloader-label {
+  margin-top: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--wine);
+}
+
+/* ===== Анимации ===== */
+@keyframes kitten-hop {
+  from {
+    transform: translateY(0) rotate(-4deg) scale(1.03, 0.97);
+  }
+  to {
+    transform: translateY(-12px) rotate(4deg) scale(0.97, 1.03);
+  }
+}
+
+@keyframes heart-float {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.6);
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(14px, -40px) scale(1.1);
+  }
+}
+
+@keyframes cat-blink {
+  0%,
+  92%,
+  100% {
+    transform: scaleY(1);
+  }
+  95% {
+    transform: scaleY(0.1);
+  }
+}
+
+@keyframes cat-heart {
+  from {
+    transform: translateY(0) scale(0.9);
+    opacity: 0.6;
+  }
+  to {
+    transform: translateY(-4px) scale(1.1);
+    opacity: 1;
+  }
+}
+
+@keyframes cat-chase {
+  0% {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(110px);
     opacity: 0;
   }
 }

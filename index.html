@@ -3,19 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Снежа Design — дизайн визиток, листовок и полиграфии." />
+    <meta name="description" content="Снежана — графический дизайн для любых целей: визитки, листовки, буклеты, логотипы." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Allura&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" href="img/Desijn_cat.jpeg">
+    <title>Снежана — графический дизайн для любых целей</title>
+    <link rel="stylesheet" href="/src/index.css" />
     <link rel="stylesheet" href="src/index.css">
-    <title>Снежа Design</title>
   </head>
   <body>
-    <!-- Экран загрузки: котик бежит за клубком -->
-    <div id="preloader" class="preloader" aria-live="polite" aria-label="Загрузка сайта">
+    <!-- Экран загрузки: рыжий котёнок бежит за клубком -->
+<div id="preloader" class="preloader" aria-live="polite" aria-label="Загрузка сайта">
       <div class="preloader-stage">
         <div class="runner">
           <svg class="cat" viewBox="0 0 120 100" width="120" height="100" fill="none" stroke-linecap="round" aria-hidden="true">
@@ -57,7 +59,7 @@
 
     <header class="navbar">
       <nav class="navbar-inner">
-        <a href="#top" class="logo">Снежа Design</a>
+        <a href="#top" class="logo">Снежа Desijn</a>
         <ul class="nav-links">
           <li><a href="#portfolio">Работы</a></li>
           <li><a href="#contact">Контакты</a></li>
@@ -66,31 +68,21 @@
     </header>
 
     <main>
-      <!-- Шапка с большой фотографией -->
+      <!-- Главное изображение -->
       <section id="top" class="hero">
         <img
           class="hero-img"
-          src="https://images.pexels.com/photos/30749329/pexels-photo-30749329.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1400&w=1200"
-          alt="Девушка с бордовой сумкой"
+          src="/img/main.jpg"
+          alt="Графический дизайн для любых целей — Снежана"
         />
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <p class="kicker kicker--light">Графический дизайнер</p>
-          <h1>Визитки, листовки и всё, что печатается</h1>
-          <p class="hero-text">
-            Аккуратный дизайн для малого бизнеса и мастеров. Быстро, с правками и готовыми файлами
-            для печати.
-          </p>
-          <a href="#contact" class="btn btn--light">Заказать дизайн</a>
-        </div>
+    
       </section>
 
       <!-- Работы: плитки разного размера -->
       <section id="portfolio" class="section section--white">
         <div class="container">
           <div class="section-title">
-            <p class="kicker">Примеры</p>
-            <h2>Работы</h2>
+            <h2>Портфолио</h2>
             <span class="divider"></span>
           </div>
           <div class="works-grid" id="works-grid"></div>
@@ -101,15 +93,14 @@
       <section id="contact" class="section section--light">
         <div class="container container--narrow contact">
           <p class="kicker">Контакты</p>
-          <h2>Давайте обсудим ваш проект</h2>
+          <h2>Закажите дизайн</h2>
           <p class="contact-text">
             Напишите, что нужно напечатать, какой тираж и сроки. Отвечу в течение дня и пришлю
             примерную стоимость.
           </p>
           <div class="contact-actions">
-            <a class="btn btn--wine" href="mailto:hello@Снежаdesign.ru?subject=Заказ%20дизайна">Написать на почту</a>
-            <a class="contact-link" href="https://t.me/Снежаdesign">Telegram: @Снежаdesign</a>
-            <p class="contact-phone">+7 (900) 000-00-00</p>
+            <a class="btn btn--wine" href="tel:+79530914332">Позвонить</a>
+            <a class="contact-link" href="tel:+79530914332">+7 (953) 091-43-32</a>
           </div>
         </div>
       </section>
@@ -117,8 +108,8 @@
 
     <footer class="footer">
       <div class="container footer-inner">
-        <span class="footer-logo">Снежа Design</span>
-        <span class="footer-copy">© 2026 Снежа Design. Все права защищены.</span>
+        <span class="footer-logo">Снежана</span>
+        <span class="footer-copy">© 2026 Снежана. Графический дизайн.</span>
       </div>
     </footer>
 
@@ -156,6 +147,6 @@
       </div>
     </div>
 
-    <script type="module" src="src/main.js"></script>
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>
