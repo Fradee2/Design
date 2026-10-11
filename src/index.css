@@ -352,11 +352,7 @@ section[id] {
 
 }
 
-@media (min-width: 1024px) {
-  .works-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
+
 
 /* ===== Модальное окно ===== */
 .modal {
