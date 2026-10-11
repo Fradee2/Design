@@ -892,3 +892,19 @@ section[id] {
     transform: translateY(-8px);
   }
 }
+@media (max-width:500px) {
+  .logo{
+    font-size: 16px;
+  }
+  .nav-links a{
+    font-size: 12px;
+  }
+}
+@media (max-width:320px) {
+  .logo{
+    font-size: 14px;
+  }
+  .nav-links a{
+    font-size: 8px;
+  }
+}
