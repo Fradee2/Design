@@ -214,25 +214,112 @@ section[id] {
 }
 
 /* ===== Шапка ===== */
+/* ===== Шапка ===== */
 .hero {
-  padding-top: 64px;
   background: #fff;
+  padding: 96px 0 40px;
+}
+
+.hero-inner {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 16px;
+  align-items: center;
+}
+.hero-text {
+  text-align: center;
+}
+
+.hero-title {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(40px, 13vw, 132px);
+  line-height: 0.95;
+  letter-spacing: 0.04em;
+  text-indent: 0.04em;
+  text-transform: uppercase;
+  color: var(--wine-dark);
+}
+
+.hero-divider {
+  display: block;
+  width: 40px;
+  height: 2px;
+  margin: 16px auto;
+  background: var(--wine);
+}
+
+.hero-subtitle {
+  margin: 0;
   display: flex;
-  justify-content: right;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 12px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(13px, 4vw, 22px);
+  line-height: 1.5;
+  color: var(--wine);
+}
+
+.hero-subtitle span {
+  white-space: nowrap;
+}
+
+.hero-subtitle span + span::before {
+  content: "·";
+  margin-right: 12px;
+  color: var(--rose);
+  font-style: normal;
 }
 
 .hero-img {
-  max-width: 1200px;
+  display: block;
   width: 100%;
+  max-width: 280px;
   height: auto;
+  margin: 0 auto;
+  transform: scaleX(-1);
 }
 
-.hero-cta {
-  padding: 32px 24px;
-  text-align: center;
-  background: #fff;
-}
+@media (min-width: 900px) {
+  .hero {
+    padding: 128px 0 64px;
+  }
 
+  .hero-inner {
+    padding: 0 24px;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 48px;
+  }
+
+  .hero-text {
+    text-align: left;
+  }
+
+  .hero-divider {
+    width: 48px;
+    margin: 24px 0;
+  }
+
+  .hero-subtitle {
+    justify-content: flex-start;
+    gap: 4px 16px;
+  }
+
+  .hero-subtitle span + span::before {
+    margin-right: 16px;
+  }
+
+  .hero-img {
+    max-width: 600px;
+    margin: 0;
+  }
+}
 /* ===== Заголовок секции ===== */
 .section-title {
   margin-bottom: 48px;
@@ -403,18 +490,13 @@ section[id] {
 /* Слайдер */
 .slider {
   position: relative;
-  height: 256px;
   overflow: hidden;
   background: var(--wine-light);
   user-select: none;
   touch-action: pan-y;
 }
 
-@media (min-width: 768px) {
-  .slider {
-    height: 320px;
-  }
-}
+
 
 .slider-track {
   display: flex;
@@ -902,5 +984,139 @@ section[id] {
   }
   .nav-links a{
     font-size: 8px;
+  }
+}
+#dtl,
+[id="dtl"] {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 210 / 297;
+  object-fit: contain;
+  object-position: center;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* ===== Мобильные: все изображения целиком, без обрезки (кроме id="dtl") ===== */
+@media (max-width: 767px) {
+
+
+
+
+  .slide {
+    padding: 16px;
+  }
+}
+
+.slider {
+  background: var(--wine-dark);
+}
+
+.slide {
+  padding: 24px;
+  cursor: zoom-in;
+}
+
+.slide img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--wine-dark);
+  font-size: 20px;
+  line-height: 1;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.slider-btn:hover {
+  background: var(--wine);
+  color: #fff;
+}
+
+.slider-btn--prev {
+  left: 12px;
+}
+
+.slider-btn--next {
+  right: 12px;
+}
+
+.slider-counter {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.slider-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.slider-dots button {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.5);
+  transition: width 0.3s, background-color 0.3s;
+}
+
+.slider-dots button:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.slider-dots button.is-active {
+  width: 24px;
+  background: #fff;
+}
+
+@media (max-width:500px) {
+  .mobile{
+    display: block;
+  }
+  .desctop{
+    display: none;
+  }
+  .navbar{
+    position: relative;
+  }
+}
+@media (min-width:500px) {
+  .mobile{
+    display: none;
+  }
+  .desctop{
+    display: block;
   }
 }

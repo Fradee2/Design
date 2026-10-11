@@ -67,7 +67,7 @@ function openModal(work) {
   if (hasImages) {
     track.style.transition = "none";
     track.innerHTML = work.images
-      .map((src, i) => `<img src="${src}" alt="${work.title} — фото ${i + 1}" draggable="false" />`)
+      .map((src, i) => `<img src="${src}" alt="${work.title} — фото ${i + 1}" draggable="false" id="${work.id}" />`)
       .join("");
     dots.innerHTML = work.images
       .map((_, i) => `<button type="button" data-dot="${i}" aria-label="Фото ${i + 1}"></button>`)
