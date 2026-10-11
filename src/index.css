@@ -1168,6 +1168,14 @@ section[id] {
     margin-top: -150px;
   }
 }
+#modal-solution .label {
+  font-style: italic;   /* на случай, если сбросите em */
+  color: #5e0503;       /* фирменный бордо */
+}
+
+#modal-solution .label strong {
+  font-weight: 700;
+}
 #modal-solution {
   white-space: pre-line;
 }

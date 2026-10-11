@@ -56,7 +56,20 @@ function goTo(step) {
   currentIndex = (currentIndex + step + n) % n;
   renderSlide();
 }
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
 
+// Оборачивает "Слово:" в начале строки в <em><strong>
+function formatLabels(text) {
+  return escapeHtml(text).replace(
+    /^([^\n:]{1,40}):/gm,
+    '<em class="label"><strong>$1:</strong></em>'
+  );
+}
 function openModal(work) {
   currentWork = work;
   currentIndex = 0;
@@ -88,7 +101,7 @@ function openModal(work) {
   document.getElementById("modal-category").textContent = work.category;
   document.getElementById("modal-title").textContent = work.title;
   document.getElementById("modal-task").textContent = work.task;
-  document.getElementById("modal-solution").textContent = work.solution;
+  document.getElementById("modal-solution").innerHTML = formatLabels(work.solution);
   document.getElementById("modal-result").textContent = work.result;
 
   modal.hidden = false;
