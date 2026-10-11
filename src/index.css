@@ -1168,3 +1168,6 @@ section[id] {
     margin-top: -150px;
   }
 }
+#modal-solution {
+  white-space: pre-line;
+}
