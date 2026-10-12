@@ -70,6 +70,16 @@ function formatLabels(text) {
     '<em class="label"><strong>$1:</strong></em>'
   );
 }
+// Показывает/скрывает пару <dt>+<dd> целиком в зависимости от содержимого
+function toggleField(wrapId, value) {
+  if (value === undefined) value = "";
+  const wrap = document.getElementById(wrapId);
+  const isEmpty =
+    value == null ||
+    (typeof value === "string" && value.trim() === "");
+  wrap.hidden = isEmpty;
+  return !isEmpty;
+}
 function openModal(work) {
   currentWork = work;
   currentIndex = 0;
@@ -101,12 +111,22 @@ function openModal(work) {
     track.offsetHeight; // сбрасываем переход, чтобы не ехать от прошлой работы
     track.style.transition = "";
   }
+document.getElementById("modal-category").textContent = work.category;
+document.getElementById("modal-title").textContent = work.title;
 
-  document.getElementById("modal-category").textContent = work.category;
-  document.getElementById("modal-title").textContent = work.title;
-  document.getElementById("modal-task").textContent = work.task;
-  document.getElementById("modal-solution").innerHTML = formatLabels(work.solution);
-  document.getElementById("modal-result").textContent = work.result;
+// Задача
+const hasTask = toggleField("modal-task-wrap", work.task);
+document.getElementById("modal-task").textContent = hasTask ? work.task : "";
+
+// Результат
+const hasResult = toggleField("modal-result-wrap", work.result);
+document.getElementById("modal-result").textContent = hasResult ? work.result : "";
+
+// Решение (рендерится через formatLabels, поэтому пишем только если есть текст)
+const hasSolution = toggleField("modal-solution-wrap", work.solution);
+document.getElementById("modal-solution").innerHTML = hasSolution
+  ? formatLabels(work.solution)
+  : "";
 
   modal.hidden = false;
   document.body.classList.add("no-scroll");
