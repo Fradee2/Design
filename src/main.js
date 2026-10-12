@@ -78,14 +78,18 @@ function openModal(work) {
   slider.hidden = !hasImages;
 
   if (hasImages) {
-    track.style.transition = "none";
-    track.innerHTML = work.images
-      .map((src, i) => `<img src="${src}" alt="${work.title} — фото ${i + 1}" draggable="false" id="${work.id}"  loading="lazy"/>`)
-      .join("");
-    dots.innerHTML = work.images
-      .map((_, i) => `<button type="button" data-dot="${i}" aria-label="Фото ${i + 1}"></button>`)
-      .join("");
-
+  track.style.transition = "none";
+  track.innerHTML = work.images
+    .map((src, i) => `
+      <div class="slide">
+        <img
+          src="${src}"
+          alt="${work.title} — фото ${i + 1}"
+          draggable="false"
+          loading="lazy"
+        />
+      </div>`)
+    .join("");
     // Стрелки, точки и счётчик нужны только при нескольких фото
     const multi = work.images.length > 1;
     prevBtn.hidden = !multi;
